@@ -1,26 +1,16 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import firebase from 'firebase'
+var firebaseConfig = {
+  apiKey: "AIzaSyBIHX8ZyuVx4trAU1R43OjIaPHRGr6q1g4",
+  authDomain: "kingame-project.firebaseapp.com",
+  databaseURL: "https://kingame-project.firebaseio.com",
+  projectId: "kingame-project",
+  storageBucket: "kingame-project.appspot.com",
+  messagingSenderId: "223723811224",
+  appId: "1:223723811224:web:87fb2a999331401f477bed"
+};
+firebase.initializeApp(firebaseConfig);
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
-
-export default App;
+var database = firebase.database();
+firebase.database().ref('ESP8266/number').set({
+  "value": "12"
+});
