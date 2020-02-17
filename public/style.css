@@ -1,0 +1,27 @@
+li {
+    font-size: 20px;
+}
+
+h1{
+    font-size: 50px;
+    text-align: center;
+}
+
+body{
+    background-color: rgb(220, 220, 220);
+}
+
+#root{
+    border: 3px rgb(213, 96, 95) solid;
+    border-radius: 5px;
+    background-color: rgb(200, 200, 200);
+}
+
+textarea{
+    width: 500px;
+    margin: 0 auto;
+}
+
+.mainArea {
+    margin: 10px;
+}

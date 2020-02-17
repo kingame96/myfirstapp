@@ -13,14 +13,11 @@ var firebaseConfig = {
 };
 firebase.initializeApp(firebaseConfig);
 
-const textAreaStyles = {
-    width: 235,
-    margin: 5
-  };
+
 
   var todos;
   var items;
-  var itemsss;
+  var itemsss = [];
 
   class MyToDoList extends React.Component {
     constructor(props) {
@@ -33,6 +30,9 @@ const textAreaStyles = {
       this.handleSubmit = this.handleSubmit.bind(this);
       this.handleChange = this.handleChange.bind(this);
     }
+    handleDelete(a){
+      firebase.database().ref('ESP8266/number/' + a).remove();
+    }
     handleSubmit() {
       const itemsArray = this.state.userInput;
       this.setState({
@@ -42,36 +42,52 @@ const textAreaStyles = {
         "valueee": this.state.userInput
       });
     }
+
     handleChange(e) {
       this.setState({
         userInput: e.target.value
       });
-
     }
     componentWillMount(){
       firebase.database().ref('ESP8266/number').once('value')
       .then((dataSnapshot) => {
+
         const value = dataSnapshot.val();
-        todos = Object.keys(value).map((key) => value[key]);     
-        items = todos.map(i => i['valueee']);
-        itemsss = items.map(i => <li>{i}</li>)
+
+        if(value != null) {
+
+        todos = Object.keys(value).map((key) => value[key]); 
+
+        const Id = Object.keys(value);
+
+        items = todos.map(i => i['valueee']); 
+
+        //itemsss = items.map(i => <li>{i}</li>)
+
+        for(var i = 0; i < items.length; i++){
+
+          itemsss[i] =<div>
+            <li>{items[i]}</li>
+            <button onClick={this.handleDelete.bind(this, Id[i])} className="btn btn-danger">Delete</button>
+          </div>
+        }
+        
         this.setState({
           itemss: itemsss
         })
+        }       
       }
       );
     }
 
     render() {   
      return (
-        <div>
+        <div className="mainArea">
           <textarea
             onChange={this.handleChange}
             value={this.state.userInput}
-            style={textAreaStyles}
-            placeholder="Separate Items With Commas" /><br />
-          <button onClick={this.handleSubmit}>Create List</button>
-          <h1>My "To Do" List:</h1>
+            /><br />
+          <button onClick={this.handleSubmit} className="btn btn-primary">Create List</button>
           <ul>
             {this.state.itemss}
             <li>{this.state.toDoList}</li>
@@ -82,3 +98,4 @@ const textAreaStyles = {
   };
   
   ReactDOM.render(<MyToDoList />, document.getElementById("root"));
+
