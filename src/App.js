@@ -20,7 +20,11 @@ import {excuName} from './logon'
     }
 
     handleDelete(a){
-      firebase.database().ref('ToDoList1/'+ excuName + '/' + a).remove()
+      firebase.database().ref('ToDoList1/'+ excuName + '/' + a).remove(() =>{
+        todos = {};
+        items = [];
+        itemsss = [];
+      })
     }
     handleSubmit(event) {
       event.preventDefault();
@@ -41,6 +45,11 @@ import {excuName} from './logon'
 
     componentDidMount(){
       firebase.database().ref('ToDoList1/' + excuName).on('value', (dataSnapshot) => {
+        this.setState({
+          itemss: []
+        })
+
+        
         const value = dataSnapshot.val();
 
         if(value != null) {
