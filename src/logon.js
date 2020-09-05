@@ -2,8 +2,14 @@ import React from 'react' ;
 import firebase from 'firebase';
 import { BrowserRouter, Route, Redirect } from "react-router-dom";
 import Register from './login'
-import MyToDoList from './app';
+import MyToDoList from './App';
 
+function setCookie(cname, cvalue, exdays) {
+    var d = new Date();
+    d.setTime(d.getTime() + (exdays*24*60*60*1000));
+    var expires = "expires="+ d.toUTCString();
+    document.cookie = cname + "=" + cvalue + "; " + expires;
+}
 
 var name = [];
 var password = '';
@@ -72,16 +78,18 @@ class Logon extends React.Component {
                         this.setState({
                             isData: true
                         })
+                        setCookie('userName', excuName, 1);
                     }
                 }
             )
         }
-
+        
 
     }
 
     render(){
         if(this.state.isData === true) {
+            window.location.reload();
             return(
                 <div>
                     <BrowserRouter>
