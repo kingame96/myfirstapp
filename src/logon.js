@@ -115,15 +115,17 @@ class Logon extends React.Component {
                 <input type="text"
                     onChange={this.userName}
                     value={this.state.userNamee}
+                    className="form-control"
                     /><br />
                 <p>Pass Word</p>
                 <input type="text"
                     onChange={this.passWord}
                     value={this.state.userPassWord}
+                    className="form-control"
                     /><br />
-                <button onClick={this.handleSubmit} className="btn btn-primary">Submit</button>
+                <button onClick={this.handleSubmit} className="btn btn-primary btn-lg">Submit</button>
                 <br />
-                <button onClick={this.handleRegister} className="btn btn-primary">Register</button>
+                <button onClick={this.handleRegister} className="btn btn-primary btn-lg">Register</button>
             </div>
         );
     }

@@ -1,33 +1,31 @@
+body {
+    background-image: url("./imgae.jpg") ;
+    font-family: Segoe UI Historic, Segoe UI, Helvetica, Arial, sans-serif;
+    font-weight: 600;
+}
+
+.header {
+    margin: 10px;
+    font-size: 35px;
+    background-color: rgba(51, 51, 51, 0.15);
+    font-weight: bold;
+    border-radius: 10px;
+}
+
+.mcontainer {
+    background-color: rgba(51, 51, 51, 0.15);
+    margin: 10px;
+    padding: 5px;
+    border-radius: 10px;
+}
+p {
+    font-size: 20px;
+    margin: 0px;
+}
+button {
+    margin: 10px;
+}
+
 li {
     font-size: 20px;
-}
-
-h1{
-    font-size: 50px;
-    text-align: center;
-}
-
-body{
-    background-color: rgb(220, 220, 220);
-}
-
-textarea{
-    width: 500px;
-    margin: 0 auto;
-}
-
-.mainArea {
-    margin: 10px;
-}
-
-#logon{
-    border: 3px rgb(213, 96, 95) solid;
-    border-radius: 5px;
-    background-color: rgb(200, 200, 200);
-    margin: 10px;
-    padding: 10px;
-}
-
-button {
-    margin: 10px 10px 10px 0;
 }

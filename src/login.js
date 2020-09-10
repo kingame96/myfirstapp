@@ -70,17 +70,19 @@ class Register extends React.Component {
             <div>
                 <p>Register</p>
                 <p>User Name</p>
-                <textarea
+                <input
                     onChange={this.userName}
                     value={this.state.userNamee}
+                    className="form-control"
                     required="required"/><br />
                 <p>Pass Word</p>
-                <textarea
+                <input
                     onChange={this.passWord}
                     value={this.state.userPassWord}
+                    className="form-control"
                     required
                     /><br />
-                <button onClick={this.handleSubmit} className="btn btn-primary">Submit</button>
+                <button onClick={this.handleSubmit} className="btn btn-primary btn-lg">Submit</button>
             </div>
 
         );
