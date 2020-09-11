@@ -1,38 +1,45 @@
-
 body {
-    background: url(../image/background-bau-troi-xanh-de-thuong_100934336.png) no-repeat left top;
-    background-size: auto;
+    background-image: url("./image.jpg") ;
     font-family: Segoe UI Historic, Segoe UI, Helvetica, Arial, sans-serif;
-    
+    font-weight: 600;
 }
 
 .header {
     margin: 10px;
-    font-size: 30px;
-    background: green;
+    font-size: 35px;
+    background-color: rgba(51, 51, 51, 0.15);
+    font-weight: bold;
+    border-radius: 10px;
 }
 
 .mcontainer {
-    background: red;
+    background-color: rgba(51, 51, 51, 0.15);
     margin: 10px;
     padding: 5px;
+    border-radius: 10px;
+}
+p {
+    font-size: 20px;
+    margin: 0px;
+}
+button {
+    margin: 10px;
+}
+
+li {
+    font-size: 20px;
+}
+
+footer{
+    margin-top: 30px;
+    padding: 20px;
+  }
+  
+  footer > span {
+    margin-top: 5px;
     display: flex;
-   }
-
-.item {
-    background: blue;
-    margin: 5px;
-    color: white;
-    height: 50px;
-    text-align: center;
-    line-height: 50px;
-}
-
-.item2 {
-    flex-grow: 7;
-}
-
-.item1 {
-    flex-grow: 1;
-}
-
+    justify-content: flex-end;
+    font-size: 10px;
+    color: black;
+    opacity: 0.3;
+  }

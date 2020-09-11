@@ -4,6 +4,12 @@ import { BrowserRouter, Route, Redirect } from "react-router-dom";
 import Register from './login'
 import MyToDoList from './App';
 
+function setCookie(cname, cvalue, exdays) {
+    var d = new Date();
+    d.setTime(d.getTime() + (exdays*24*60*60*1000));
+    var expires = "expires="+ d.toUTCString();
+    document.cookie = cname + "=" + cvalue + "; " + expires;
+}
 
 var name = [];
 var password = '';
@@ -14,6 +20,7 @@ firebase.database().ref('ToDoList/').once('value').then(
         name = Object.keys(dataSnapshot.val());
     }
 )
+console.log(name);
 
 class Logon extends React.Component {
     constructor(props) {
@@ -72,16 +79,18 @@ class Logon extends React.Component {
                         this.setState({
                             isData: true
                         })
+                        setCookie('userName', excuName, 1);
                     }
                 }
             )
         }
-
+        
 
     }
 
     render(){
         if(this.state.isData === true) {
+            window.location.reload();
             return(
                 <div>
                     <BrowserRouter>
@@ -107,15 +116,17 @@ class Logon extends React.Component {
                 <input type="text"
                     onChange={this.userName}
                     value={this.state.userNamee}
+                    className="form-control"
                     /><br />
                 <p>Pass Word</p>
                 <input type="text"
                     onChange={this.passWord}
                     value={this.state.userPassWord}
+                    className="form-control"
                     /><br />
-                <button onClick={this.handleSubmit} className="btn btn-primary">Submit</button>
+                <button onClick={this.handleSubmit} className="btn btn-primary btn-lg">Log in</button>
                 <br />
-                <button onClick={this.handleRegister} className="btn btn-primary">Register</button>
+                <button onClick={this.handleRegister} className="btn btn-primary btn-lg">Register</button>
             </div>
         );
     }
