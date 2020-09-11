@@ -2,7 +2,7 @@ import React from 'react' ;
 import firebase from 'firebase';
 import { BrowserRouter, Route, Redirect } from "react-router-dom";
 import Register from './login'
-import MyToDoList from './app';
+import MyToDoList from './App';
 
 
 var name = [];
