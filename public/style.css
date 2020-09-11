@@ -1,5 +1,5 @@
 body {
-    background-image: url("./imgae.jpg") ;
+    background-image: url("./image.jpg") ;
     font-family: Segoe UI Historic, Segoe UI, Helvetica, Arial, sans-serif;
     font-weight: 600;
 }
@@ -29,3 +29,17 @@ button {
 li {
     font-size: 20px;
 }
+
+footer{
+    margin-top: 30px;
+    padding: 20px;
+  }
+  
+  footer > span {
+    margin-top: 5px;
+    display: flex;
+    justify-content: flex-end;
+    font-size: 10px;
+    color: black;
+    opacity: 0.3;
+  }

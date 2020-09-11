@@ -20,6 +20,7 @@ firebase.database().ref('ToDoList/').once('value').then(
         name = Object.keys(dataSnapshot.val());
     }
 )
+console.log(name);
 
 class Logon extends React.Component {
     constructor(props) {
@@ -123,7 +124,7 @@ class Logon extends React.Component {
                     value={this.state.userPassWord}
                     className="form-control"
                     /><br />
-                <button onClick={this.handleSubmit} className="btn btn-primary btn-lg">Submit</button>
+                <button onClick={this.handleSubmit} className="btn btn-primary btn-lg">Log in</button>
                 <br />
                 <button onClick={this.handleRegister} className="btn btn-primary btn-lg">Register</button>
             </div>

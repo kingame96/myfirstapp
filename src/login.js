@@ -13,6 +13,14 @@ var firebaseConfig = {
     appId: "1:223723811224:web:87fb2a999331401f477bed"
   };
 firebase.initializeApp(firebaseConfig);
+var name = [];
+firebase.database().ref('ToDoList/').once('value').then(
+    (dataSnapshot) => {
+        name = Object.keys(dataSnapshot.val());
+    }
+)
+
+
 
 class Register extends React.Component {
     constructor(props) {
@@ -42,6 +50,14 @@ class Register extends React.Component {
         event.preventDefault();
         const checkUserName = this.state.userNamee;
         const checkPassWord = this.state.userPassWord;
+
+        for(var i = 0; i < name.length ;i++) {
+            if(name[i] === checkUserName) {
+                alert("Tai khoan da co nguoi su dung. Vui long tao tai khoan khac");
+                return;
+            }
+        }
+
         if((checkUserName !== '') & (checkPassWord !== '')) {
             firebase.database().ref('ToDoList/'+this.state.userNamee).set({
                 "password" : this.state.userPassWord

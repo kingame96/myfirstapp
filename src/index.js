@@ -2,6 +2,9 @@ import React from 'react' ;
 import ReactDOM from 'react-dom' ;
 import Logon from "./logon";
 import MyToDoList from "./App";
+import Header from "./header";
+
+
 
 function getCookie(cname) {
     var name = cname + "=";
@@ -18,9 +21,11 @@ function getCookie(cname) {
     return "";
 }
 
-var userName123 = getCookie('userName');
+
+export var userName123 = getCookie('userName');
 console.log(userName123);
+
 if(userName123 !== "")
 ReactDOM.render(<MyToDoList />, document.getElementById("logon"));
 else ReactDOM.render(<Logon />, document.getElementById("logon"));
-
+ReactDOM.render(<Header />, document.getElementById("header"));
